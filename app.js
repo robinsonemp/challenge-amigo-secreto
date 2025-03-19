@@ -1,56 +1,57 @@
 // El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
-// Variables
-const listaAmigos = [];
 
-function agregarAmigo() {
-    const entradaAmigo = document.getElementById('amigo');
-    const nombreAmigo = entradaAmigo.value;
+const list = [];
 
-   if (nombreAmigo) {
-       listaAmigos.push(nombreAmigo);
-       entradaAmigo.value = '';
-       displayList();
-       SelectList();
-   }
-}
+        function addToList() {
+            const inputBox = document.getElementById('inputBox');
+            const text = inputBox.value;
 
-function displayList() {
-    const listElement = document.getElementById('list');
-    listElement.innerHTML = '';
+            if (text) {
+                list.push(text);
+                inputBox.value = '';
+                displayList();
+               SelectList();
+            }
+        }
 
-    listaAmigos.forEach((item, index) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = item;
-        listItem.onclick = () => removeFromList(index);
-        listElement.appendChild(listItem);
-    });
-}
+        function displayList() {
+            const listElement = document.getElementById('list');
+            listElement.innerHTML = '';
 
-function updateSelectList() {
-    const selectList = document.getElementById('selectList');
-    selectList.innerHTML = '';
+            list.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+                listItem.onclick = () => removeFromList(index);
+                listElement.appendChild(listItem);
+            });
+        }
 
-    listaAmigos.forEach((item, index) => {
-        const option = document.createElement('option');
-        option.value = index;
-        option.textContent = item;
-        selectList.appendChild(option);
-    });
-}
+        function updateSelectList() {
+            const selectList = document.getElementById('selectList');
+            selectList.innerHTML = '';
 
-function removeFromList(index) {
-    listaAmigos.splice(index, 1);
-    displayList();
-    updateSelectList();
-}
+            list.forEach((item, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = item;
+                selectList.appendChild(option);
+            });
+        }
 
-function sortearAmigo() {
-    if (listaAmigos.length > 0) {
-        const randomIndex = Math.floor(Math.random() * listaAmigos.length);
-        const selectedFriend = listaAmigos[randomIndex];
-        alert(`El amigo sorteado es: ${selectedFriend}`);
-        removeFromList(randomIndex);
-    } else {
-        alert('La lista está vacía.');
-    }
-}
+        function removeFromList(index) {
+            list.splice(index, 1);
+            displayList();
+            updateSelectList();
+        }
+
+       
+        function sortearAmigo() {
+            if (list.length > 0) {
+                const randomIndex = Math.floor(Math.random() * list.length);
+                const selectedFriend = list[randomIndex];
+                alert(`El amigo secreto escogido es: ${selectedFriend}`);
+                removeFromList(randomIndex);
+            } else {
+                alert('La lista está vacía.');
+            }
+        }

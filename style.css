@@ -85,7 +85,7 @@ body {
     border: 2px solid #000;
     border-radius: 25px 0 0 25px;
     font-size: 16px;
-}
+} 
 
 .button-container {
     width: 300px;
@@ -113,7 +113,7 @@ button {
     border-radius: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-}
+}  
 
 .button-add {
     background-color: var(--color-tertiary);
@@ -140,7 +140,7 @@ ul {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-}
+} 
 
 /* Botón de sortear título */
 .button-draw {
@@ -159,4 +159,4 @@ ul {
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
-}
+} 
